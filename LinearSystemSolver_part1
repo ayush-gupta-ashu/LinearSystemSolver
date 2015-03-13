@@ -27,7 +27,7 @@ class LinearSystemSolver:
         for i in range(m):
             C[i,n]=b[i]
         return C
-    def elemetray_row_operation(m,n,C):
+    def elemetray_row_operation(self,m,n,C):
         x_=zeros((m),float)
         for i in range(m-1,-1,-1):
             x_[i]=C[i,n]
@@ -35,7 +35,7 @@ class LinearSystemSolver:
                 x_[i]-=C[i,j]*x_[j]
             x_[i]=x_[i]/C[i,i]
         return x_
-    def pivot(m,n,C):
+    def pivot(self,m,n,C):
         for i in range(0,n):
             if C[i,i]==0:
                 for j in range(i+1,m):
