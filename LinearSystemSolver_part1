@@ -67,7 +67,7 @@ class LinearSystemSolver:
                 x=self.elemetray_row_operation(m,n,C)
                 return(x)
 
-     if method=='gauss-jordan':
+        if method=='gauss-jordan':
 
             m,n=int(input('row ')),int(input('column'))
             A=self.coefficent_matrix(m,n)
@@ -86,7 +86,7 @@ class LinearSystemSolver:
             x=self.elemetray_row_operation(m,n,C)
             return(x)
      
-      if method =='gauss-siedel':
+        if method =='gauss-siedel':
 
             import numpy as np
             n=int(input('order'))
@@ -106,12 +106,12 @@ class LinearSystemSolver:
             U=A-L-D
 
             for i in range(lmt):
-                if greater(abs(np.dot(A,x)-b),eps).any():
-                    q=- (dot(linalg.inv(L+D), b + np.dot(U, x)))
+                if np.greater(abs(np.dot(A,x)-b),eps).any():
+                    q=- (np.dot(np.linalg.inv(L+D), b + np.dot(U, x)))
                     x=q
                 else:
                     break
             return(x)
 
         else:
-            return NULL
+            return None
