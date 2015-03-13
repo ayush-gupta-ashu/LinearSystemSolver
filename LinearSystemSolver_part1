@@ -67,7 +67,24 @@ class LinearSystemSolver:
                 x=self.elemetray_row_operation(m,n,C)
                 return(x)
 
+     if method=='gauss-jordan':
 
+            m,n=int(input('row ')),int(input('column'))
+            A=self.coefficent_matrix(m,n)
+            b=self.constant_matrix(m)
+            C=self.augmented_matrix(m,n,A,b)
+            C=self.pivot(m,n,C)
+
+            for i in range(0,n):
+                for k in range(0,n):
+                    if k!=i:
+                        r=C[k,i]/C[i,i]
+                        if r!=0:
+                            for d  in range(0,n+1):
+                                C[k,d]-=r*C[i,d]
+
+            x=self.elemetray_row_operation(m,n,C)
+            return(x)
 
 
 
